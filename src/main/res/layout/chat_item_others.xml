@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_user_head"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="45dp"
+        app:cardElevation="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        app:cardPreventCornerOverlap="true">
+
+        <ImageView
+            android:id="@+id/tv_user_head_others"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/iu"
+            android:scaleType="centerCrop"/>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:background="@drawable/shape">
+
+        <TextView
+            android:id="@+id/tv_title_others_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+
+            android:text="user"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_title_others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/tv_title_others_user"
+            android:text="text info"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_content_others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="date"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+</LinearLayout>

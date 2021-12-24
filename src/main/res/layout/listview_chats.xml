@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff">
+
+<RelativeLayout
+    android:id="@+id/rl_bottom"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#e8eaf6" >
+
+    <Button
+        android:id="@+id/bt_send"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/send"/>
+
+    <EditText
+        android:id="@+id/et_sendmessage"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:layout_toLeftOf="@id/bt_send"
+        android:background="#e8eaf6"
+        android:hint="input your text"
+        android:singleLine="true"
+        android:textSize="18sp" />
+</RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/rl_bottom"
+
+
+        android:background="#c5cae9"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:scrollbars="none"
+        android:stackFromBottom="false" />
+</RelativeLayout>
