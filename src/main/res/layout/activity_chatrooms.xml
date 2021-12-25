@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Chatrooms">
 
-<!--    使用自定义view时，不能够设置为“wrap_content”应该设置为固定的宽度和高度。-->
+    <!--    使用自定义view时，不能够设置为“wrap_content”应该设置为固定的宽度和高度。-->
     <hk.edu.cuhk.ie.iems5722.a2_1155164913.SlideMenu
         android:id="@+id/slidemenu"
         android:layout_width="420dp"

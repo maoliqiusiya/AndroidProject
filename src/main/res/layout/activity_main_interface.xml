@@ -59,6 +59,7 @@
         android:layout_alignTop="@id/tab_menu"
         android:gravity="center"
         android:layout_marginBottom="52dp"
+        android:background="#eceef1"
         android:layout_height="wrap_content">
 
         <androidx.viewpager.widget.ViewPager
