@@ -39,18 +39,18 @@ public class Chatrooms extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatrooms);
+        setContentView(R.layout.activity_groupchat);
 
         imageView = findViewById(R.id.test);
         slideMenu = findViewById(R.id.slidemenu);
 
-        listviewChatrooms = findViewById(R.id.listview_chatrooms);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                slideMenu.switchMenu();
-            }
-        });
+        listviewChatrooms = findViewById(R.id.lv_chatrooms);
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                slideMenu.switchMenu();
+//            }
+//        });
 
         chatroomContext = this;
         chatroomData = new LinkedList<ChatroomItem>();

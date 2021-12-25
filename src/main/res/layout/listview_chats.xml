@@ -43,7 +43,7 @@
         android:layout_above="@id/rl_bottom"
 
 
-        android:background="#c5cae9"
+        android:background="#dae3f2"
         android:cacheColorHint="#00000000"
         android:divider="@null"
         android:scrollbars="none"
