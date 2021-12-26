@@ -1,25 +1,20 @@
 package hk.edu.cuhk.ie.iems5722.a2_1155164913.project;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.RadioButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import hk.edu.cuhk.ie.iems5722.a2_1155164913.ChatActivity;
-import hk.edu.cuhk.ie.iems5722.a2_1155164913.ChatroomItem;
-import hk.edu.cuhk.ie.iems5722.a2_1155164913.ChatroomItemAdapter;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.Chatrooms;
-import hk.edu.cuhk.ie.iems5722.a2_1155164913.MainActivity;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.R;
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.WiFiMainActivity;
 
 public class MainInterface extends AppCompatActivity {
 
@@ -47,6 +42,13 @@ public class MainInterface extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        rbContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainInterface.this, WiFiMainActivity.class);
+                startActivity(intent);
+            }
+        });
 // server client 1 button
         View view1= new View(this);
         view1.setBackgroundColor(Color.GRAY);
@@ -64,6 +66,7 @@ public class MainInterface extends AppCompatActivity {
 
         ViewPager viewPager = findViewById(R.id.main_vp);
         viewPager.setAdapter(new ViewPageAdapter(viewList));
+
 
 
 

@@ -3,6 +3,15 @@
     package="hk.edu.cuhk.ie.iems5722.a2_1155164913">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
 
     <application
         android:allowBackup="true"
@@ -12,6 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.2"
         android:usesCleartextTraffic="true">
+
+
         <activity
             android:name=".project.Me"
             android:exported="true" />
@@ -37,6 +48,24 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".WiFiMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FileSenderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FileReceiverActivity"
+            android:screenOrientation="portrait" />
+        <service
+            android:name=".service.FileReceiverService"
+            android:exported="false" />
+        <service
+            android:name=".service.FileSenderService"
+            android:enabled="true"
+            android:exported="false" />
+
     </application>
 
 </manifest>
