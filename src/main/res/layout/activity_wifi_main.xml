@@ -6,30 +6,38 @@
     android:orientation="vertical">
 
     <Button
+
         android:id="@+id/btn_checkPermission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="30dp"
+
         android:onClick="checkPermission"
         android:background="@color/white"
-        android:text="检查权限" />
+        android:text="check wifi availability" />
 
     <Button
         android:id="@+id/btn_sender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="30dp"
         android:onClick="startFileSenderActivity"
         android:background="@color/white"
-        android:text="文件发送端" />
+        android:text="send files" />
 
     <Button
         android:id="@+id/btn_receiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginBottom="30dp"
         android:onClick="startFileReceiverActivity"
         android:background="@color/white"
-        android:text="文件接收端" />
+        android:text="receive files" />
 
 </LinearLayout>

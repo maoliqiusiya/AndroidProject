@@ -60,14 +60,14 @@ public class FileReceiverActivity extends BaseActivity {
             this.originFileTransfer = fileTransfer;
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("正在接收的文件： " + originFileTransfer.getFileName());
+                    progressDialog.setTitle("receiving file: " + originFileTransfer.getFileName());
                     if (progress != 100) {
-                        progressDialog.setMessage("原始文件的MD5码是：" + originFileTransfer.getMd5()
-                                + "\n\n" + "总的传输时间：" + totalTime + " 秒"
-                                + "\n\n" + "瞬时-传输速率：" + (int) instantSpeed + " Kb/s"
-                                + "\n" + "瞬时-预估的剩余完成时间：" + instantRemainingTime + " 秒"
-                                + "\n\n" + "平均-传输速率：" + (int) averageSpeed + " Kb/s"
-                                + "\n" + "平均-预估的剩余完成时间：" + averageRemainingTime + " 秒"
+                        progressDialog.setMessage("raw file MD5：" + originFileTransfer.getMd5()
+                                + "\n\n" + "total transmitting time：" + totalTime + " 秒"
+                                + "\n\n" + "instant speed：" + (int) instantSpeed + " Kb/s"
+                                + "\n" + "instant-remaining time：" + instantRemainingTime + " 秒"
+                                + "\n\n" + "average speed：" + (int) averageSpeed + " Kb/s"
+                                + "\n" + "average-remaining time：" + averageRemainingTime + " 秒"
                         );
                     }
                     progressDialog.setProgress(progress);
@@ -81,8 +81,8 @@ public class FileReceiverActivity extends BaseActivity {
         public void onStartComputeMD5() {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("传输结束，正在计算本地文件的MD5码以校验文件完整性");
-                    progressDialog.setMessage("原始文件的MD5码是：" + originFileTransfer.getMd5());
+                    progressDialog.setTitle("transmitting finished, calculating MD5 of local file to verify integrity");
+                    progressDialog.setMessage("raw file MD5：" + originFileTransfer.getMd5());
                     progressDialog.setCancelable(false);
                     progressDialog.show();
                 }
@@ -93,10 +93,10 @@ public class FileReceiverActivity extends BaseActivity {
         public void onTransferSucceed(final FileTransfer fileTransfer) {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("传输成功");
-                    progressDialog.setMessage("原始文件的MD5码是：" + originFileTransfer.getMd5()
-                            + "\n" + "本地文件的MD5码是：" + fileTransfer.getMd5()
-                            + "\n" + "文件位置：" + fileTransfer.getFilePath());
+                    progressDialog.setTitle("transmitting succeed");
+                    progressDialog.setMessage("raw file MD5:" + originFileTransfer.getMd5()
+                            + "\n" + "local file MD5:" + fileTransfer.getMd5()
+                            + "\n" + "file location:" + fileTransfer.getFilePath());
                     progressDialog.setCancelable(true);
                     progressDialog.show();
                     Glide.with(FileReceiverActivity.this).load(fileTransfer.getFilePath()).into(iv_image);
@@ -108,11 +108,11 @@ public class FileReceiverActivity extends BaseActivity {
         public void onTransferFailed(final FileTransfer fileTransfer, final Exception e) {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("传输失败");
-                    progressDialog.setMessage("原始文件的MD5码是：" + originFileTransfer.getMd5()
-                            + "\n" + "本地文件的MD5码是：" + fileTransfer.getMd5()
-                            + "\n" + "文件位置：" + fileTransfer.getFilePath()
-                            + "\n" + "异常信息：" + e.getMessage());
+                    progressDialog.setTitle("transmitting failed");
+                    progressDialog.setMessage("raw file MD5: " + originFileTransfer.getMd5()
+                            + "\n" + "local file MD5: " + fileTransfer.getMd5()
+                            + "\n" + "file location: " + fileTransfer.getFilePath()
+                            + "\n" + "exception: " + e.getMessage());
                     progressDialog.setCancelable(true);
                     progressDialog.show();
                 }
@@ -131,15 +131,15 @@ public class FileReceiverActivity extends BaseActivity {
     }
 
     private void initView() {
-        setTitle("接收文件");
+        setTitle("Receive file");
         iv_image = findViewById(R.id.iv_image);
         TextView tv_hint = findViewById(R.id.tv_hint);
-        tv_hint.setText(MessageFormat.format("接收文件前，需要先主动开启Wifi热点让文件发送端连接\n热点名：{0}\n密码：{1}", Constants.AP_SSID, Constants.AP_PASSWORD));
+        tv_hint.setText(MessageFormat.format("First need to open WiFi hotspot for sender\nHOTSPOT：{0} \nPASSWORD：{1}", Constants.AP_SSID, Constants.AP_PASSWORD));
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setTitle("正在接收文件");
+        progressDialog.setTitle("receiving");
         progressDialog.setMax(100);
     }
 
@@ -167,8 +167,8 @@ public class FileReceiverActivity extends BaseActivity {
             intent.setDataAndType(Uri.fromFile(new File(filePath)), mime);
             startActivity(intent);
         } catch (Exception e) {
-            Log.e(TAG, "文件打开异常：" + e.getMessage());
-            showToast("文件打开异常：" + e.getMessage());
+            Log.e(TAG, "file open exception: " + e.getMessage());
+            showToast("file open exception: " + e.getMessage());
         }
     }
 

@@ -36,8 +36,8 @@ public class FileSenderActivity extends BaseActivity {
         public void onStartComputeMD5() {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("发送文件");
-                    progressDialog.setMessage("正在计算文件的MD5码");
+                    progressDialog.setTitle("Send file");
+                    progressDialog.setMessage("calculating MD5");
                     progressDialog.setMax(100);
                     progressDialog.setProgress(0);
                     progressDialog.setCancelable(false);
@@ -50,14 +50,14 @@ public class FileSenderActivity extends BaseActivity {
         public void onProgressChanged(final FileTransfer fileTransfer, final long totalTime, final int progress, final double instantSpeed, final long instantRemainingTime, final double averageSpeed, final long averageRemainingTime) {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("正在发送文件： " + new File(fileTransfer.getFilePath()).getName());
+                    progressDialog.setTitle("sending file: " + new File(fileTransfer.getFilePath()).getName());
                     if (progress != 100) {
-                        progressDialog.setMessage("文件的MD5码：" + fileTransfer.getMd5()
-                                + "\n\n" + "总的传输时间：" + totalTime + " 秒"
-                                + "\n\n" + "瞬时-传输速率：" + (int) instantSpeed + " Kb/s"
-                                + "\n" + "瞬时-预估的剩余完成时间：" + instantRemainingTime + " 秒"
-                                + "\n\n" + "平均-传输速率：" + (int) averageSpeed + " Kb/s"
-                                + "\n" + "平均-预估的剩余完成时间：" + averageRemainingTime + " 秒"
+                        progressDialog.setMessage("file MD5：" + fileTransfer.getMd5()
+                                + "\n\n" + "total time:" + totalTime + " sec"
+                                + "\n\n" + "instant speed: " + (int) instantSpeed + " Kb/s"
+                                + "\n" + "instant-remaining time: " + instantRemainingTime + " sec"
+                                + "\n\n" + "average speed: " + (int) averageSpeed + " Kb/s"
+                                + "\n" + " average-remaining time:" + averageRemainingTime + " sec"
                         );
                     }
                     progressDialog.setProgress(progress);
@@ -71,7 +71,7 @@ public class FileSenderActivity extends BaseActivity {
         public void onTransferSucceed(FileTransfer fileTransfer) {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("文件发送成功");
+                    progressDialog.setTitle("send succeed");
                     progressDialog.setCancelable(true);
                     progressDialog.show();
                 }
@@ -82,8 +82,8 @@ public class FileSenderActivity extends BaseActivity {
         public void onTransferFailed(FileTransfer fileTransfer, final Exception e) {
             runOnUiThread(() -> {
                 if (isCreated()) {
-                    progressDialog.setTitle("文件发送失败");
-                    progressDialog.setMessage("异常信息： " + e.getMessage());
+                    progressDialog.setTitle("send failed");
+                    progressDialog.setMessage("exception： " + e.getMessage());
                     progressDialog.setCancelable(true);
                     progressDialog.show();
                 }
@@ -118,14 +118,14 @@ public class FileSenderActivity extends BaseActivity {
     }
 
     private void initView() {
-        setTitle("发送文件");
+        setTitle("Send file");
         TextView tv_hint = findViewById(R.id.tv_hint);
-        tv_hint.setText(MessageFormat.format("在发送文件前需要先连上文件接收端开启的Wifi热点\n热点名：{0} \n密码：{1}", Constants.AP_SSID, Constants.AP_PASSWORD));
+        tv_hint.setText(MessageFormat.format("First need to connect to WiFi hotspot\nHOTSPOT：{0} \nPASSWORD：{1}", Constants.AP_SSID, Constants.AP_PASSWORD));
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setTitle("发送文件");
+        progressDialog.setTitle("sending");
         progressDialog.setMax(100);
         progressDialog.setIndeterminate(false);
     }
@@ -142,7 +142,7 @@ public class FileSenderActivity extends BaseActivity {
 
     public void sendFile(View view) {
         if (!Constants.AP_SSID.equals(WifiLManager.getConnectedSSID(this))) {
-            showToast("当前连接的 Wifi 并非文件接收端开启的 Wifi 热点，请重试或者检查权限");
+            showToast("current WiFi is not WiFi hotspot in receiver, pls check");
             return;
         }
         navToChosePicture();
@@ -154,7 +154,7 @@ public class FileSenderActivity extends BaseActivity {
         if (requestCode == CODE_CHOOSE_FILE) {
             if (resultCode == RESULT_OK) {
                 String imageUri = data.getData().toString();
-                Log.e(TAG, "文件路径：" + imageUri);
+                Log.e(TAG, "file directory: " + imageUri);
                 FileSenderService.startActionTransfer(this, imageUri,
                         WifiLManager.getHotspotIpAddress(this));
             }
