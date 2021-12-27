@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="0dp"
+    tools:context=".project.MainInterface" >
+
+
+
+
+    <RadioGroup
+        android:id="@+id/tab_menu"
+
+
+        android:layout_height="52dp"
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#EAE7E7"
+        android:elevation="4dp"
+        android:outlineProvider="bounds"
+        android:translationZ="8dp"
+        tools:targetApi="lollipop">
+
+        <RadioButton
+            android:id="@+id/rbGroup"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/group"
+            android:drawableTint="#878585"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="0dp"
+            android:text="Group"
+            android:textColor="#272626"
+            android:textSize="12dp" />
+
+
+        <RadioButton
+            android:id="@+id/rbContact"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/contact"
+            android:drawableTint="#878585"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="0dp"
+            android:text="Contact"
+            android:textColor="#272626"
+            android:textSize="12dp" />
+
+        <RadioButton
+            android:id="@+id/rbSchedule"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/upload"
+            android:button="@null"
+            android:gravity="center_horizontal|bottom"
+            android:textSize="12dp"
+            android:textColor="#272626"
+            android:drawableTint="#878585"
+            android:paddingTop="0dp"
+            android:text="Schedule"
+            />
+
+        <RadioButton
+            android:id="@+id/rbMe"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/me3"
+            android:gravity="center_horizontal|bottom"
+            android:paddingTop="0dp"
+            android:text="Me"
+            android:textSize="12dp"
+            android:textColor="#272626"
+            android:drawableTint="#878585"
+            />
+    </RadioGroup>
+</LinearLayout>
