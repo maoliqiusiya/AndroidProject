@@ -71,7 +71,7 @@
             android:textColor="#272626"
             android:drawableTint="#878585"
             android:paddingTop="0dp"
-            android:text="Schedule"
+            android:text="Report"
             />
 
         <RadioButton
