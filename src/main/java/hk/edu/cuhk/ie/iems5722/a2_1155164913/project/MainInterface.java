@@ -20,7 +20,7 @@ public class MainInterface extends AppCompatActivity {
 
     private RadioButton rbGroup;
     private RadioButton rbContact;
-    private RadioButton rbSchedule;
+    private RadioButton rbReport;
     private RadioButton rbMe;
     private List<View> viewList;
     @Override
@@ -31,7 +31,7 @@ public class MainInterface extends AppCompatActivity {
 
         rbGroup = findViewById(R.id.rbGroup);
         rbContact = findViewById(R.id.rbContact);
-        rbSchedule = findViewById(R.id.rbSchedule);
+        rbReport = findViewById(R.id.rbSchedule);
         rbMe = findViewById(R.id.rbMe);
         viewList = new ArrayList<>();
 
@@ -49,13 +49,13 @@ public class MainInterface extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        rbSchedule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainInterface.this, WiFiMainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        rbReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainInterface.this, Report.class);
+                startActivity(intent);
+            }
+        });
         rbMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

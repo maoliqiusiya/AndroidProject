@@ -11,8 +11,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,8 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.2"
         android:usesCleartextTraffic="true">
-
-
+        <activity
+            android:name=".project.Report"
+            android:exported="true" />
         <activity
             android:name=".project.Me"
             android:exported="true" />
@@ -58,6 +57,7 @@
         <activity
             android:name=".FileReceiverActivity"
             android:screenOrientation="portrait" />
+
         <service
             android:name=".service.FileReceiverService"
             android:exported="false" />
@@ -65,7 +65,6 @@
             android:name=".service.FileSenderService"
             android:enabled="true"
             android:exported="false" />
-
     </application>
 
 </manifest>
