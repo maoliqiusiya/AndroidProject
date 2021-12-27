@@ -49,6 +49,20 @@ public class MainInterface extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//        rbSchedule.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainInterface.this, WiFiMainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+        rbMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainInterface.this, Me.class);
+                startActivity(intent);
+            }
+        });
 // server client 1 button
         View view1= new View(this);
         view1.setBackgroundColor(Color.GRAY);
