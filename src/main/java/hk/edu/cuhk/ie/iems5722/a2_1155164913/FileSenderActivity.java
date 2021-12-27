@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.io.File;
@@ -17,6 +18,8 @@ import java.text.MessageFormat;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.common.Constants;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.manager.WifiLManager;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.model.FileTransfer;
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Me;
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Report;
 import hk.edu.cuhk.ie.iems5722.a2_1155164913.service.FileSenderService;
 
 
@@ -108,13 +111,48 @@ public class FileSenderActivity extends BaseActivity {
             Log.e(TAG, "onServiceDisconnected");
         }
     };
-
+    private RadioButton rbGroup;
+    private RadioButton rbWiFi;
+    private RadioButton rbReport;
+    private RadioButton rbMe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_sender);
         initView();
         bindService(FileSenderService.class, serviceConnection);
+        rbGroup = findViewById(R.id.rbGroup);
+        rbWiFi = findViewById(R.id.rbContact);
+        rbReport = findViewById(R.id.rbSchedule);
+        rbMe = findViewById(R.id.rbMe);
+        rbGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FileSenderActivity.this, Chatrooms.class);
+                startActivity(intent);
+            }
+        });
+        rbWiFi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FileSenderActivity.this, WiFiMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        rbReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FileSenderActivity.this, Report.class);
+                startActivity(intent);
+            }
+        });
+        rbMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FileSenderActivity.this, Me.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {

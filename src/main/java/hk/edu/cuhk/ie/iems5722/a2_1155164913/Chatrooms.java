@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +26,18 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Me;
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Report;
+
 public class Chatrooms extends AppCompatActivity {
 
 
     private ImageView imageView;
     private SlideMenu slideMenu;
-
+    private RadioButton rbGroup;
+    private RadioButton rbWiFi;
+    private RadioButton rbReport;
+    private RadioButton rbMe;
     private ListView listviewChatrooms;
     private List<ChatroomItem> chatroomData = null;
     private Context chatroomContext;
@@ -51,6 +58,41 @@ public class Chatrooms extends AppCompatActivity {
 //                slideMenu.switchMenu();
 //            }
 //        });
+
+        rbGroup = findViewById(R.id.rbGroup);
+        rbWiFi = findViewById(R.id.rbContact);
+        rbReport = findViewById(R.id.rbSchedule);
+        rbMe = findViewById(R.id.rbMe);
+
+
+        rbGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Chatrooms.this, Chatrooms.class);
+                startActivity(intent);
+            }
+        });
+        rbWiFi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Chatrooms.this, WiFiMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        rbReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Chatrooms.this, Report.class);
+                startActivity(intent);
+            }
+        });
+        rbMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Chatrooms.this, Me.class);
+                startActivity(intent);
+            }
+        });
 
         chatroomContext = this;
         chatroomData = new LinkedList<ChatroomItem>();

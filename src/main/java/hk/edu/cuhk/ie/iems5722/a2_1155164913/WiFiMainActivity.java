@@ -1,22 +1,64 @@
 package hk.edu.cuhk.ie.iems5722.a2_1155164913;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Me;
+import hk.edu.cuhk.ie.iems5722.a2_1155164913.project.Report;
+
 
 public class WiFiMainActivity extends BaseActivity {
-
+    private RadioButton rbGroup;
+    private RadioButton rbWiFi;
+    private RadioButton rbReport;
+    private RadioButton rbMe;
     private static final int CODE_REQ_PERMISSIONS = 665;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi_main);
+        rbGroup = findViewById(R.id.rbGroup);
+        rbWiFi = findViewById(R.id.rbContact);
+        rbReport = findViewById(R.id.rbSchedule);
+        rbMe = findViewById(R.id.rbMe);
+
+
+        rbGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WiFiMainActivity.this, Chatrooms.class);
+                startActivity(intent);
+            }
+        });
+        rbWiFi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WiFiMainActivity.this, WiFiMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        rbReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WiFiMainActivity.this, Report.class);
+                startActivity(intent);
+            }
+        });
+        rbMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WiFiMainActivity.this, Me.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

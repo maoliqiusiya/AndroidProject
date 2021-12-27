@@ -19,7 +19,7 @@ import hk.edu.cuhk.ie.iems5722.a2_1155164913.WiFiMainActivity;
 public class MainInterface extends AppCompatActivity {
 
     private RadioButton rbGroup;
-    private RadioButton rbContact;
+    private RadioButton rbWiFi;
     private RadioButton rbReport;
     private RadioButton rbMe;
     private List<View> viewList;
@@ -30,7 +30,7 @@ public class MainInterface extends AppCompatActivity {
 
 
         rbGroup = findViewById(R.id.rbGroup);
-        rbContact = findViewById(R.id.rbContact);
+        rbWiFi = findViewById(R.id.rbContact);
         rbReport = findViewById(R.id.rbSchedule);
         rbMe = findViewById(R.id.rbMe);
         viewList = new ArrayList<>();
@@ -42,7 +42,7 @@ public class MainInterface extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        rbContact.setOnClickListener(new View.OnClickListener() {
+        rbWiFi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainInterface.this, WiFiMainActivity.class);
